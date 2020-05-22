@@ -15,3 +15,4 @@ with Chrome() as driver:
     url = driver.current_url
     assert (url == "http://the-internet.herokuapp.com/secure")
     driver.quit()
+    print("ok")
