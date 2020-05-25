@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 selenium = "*"
 ec = "*"
+pytest = "*"
+locator = "*"
 
 [requires]
 python_version = "3.8"
