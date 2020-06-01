@@ -20,10 +20,10 @@ class TestShop():
         action = ActionChains(driver);
         action.move_to_element(elementBeforeClick).perform();
         driver.execute_script("arguments[0].scrollIntoView();", elementBeforeClick)
-        elementTextBefore=elementBeforeClick.__getattribute__('text')
+        elementTextBefore=elementBeforeClick.text
         print(elementTextBefore)
         elementBeforeClick.click()
-        elementTextAfter=driver.find_element_by_xpath('//div[3]/h1').__getattribute__('text')
+        elementTextAfter=driver.find_element_by_xpath('//div[3]/h1').text
         print(elementTextAfter)
         assert elementTextBefore == elementTextAfter
 
