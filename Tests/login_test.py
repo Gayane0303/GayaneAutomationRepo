@@ -26,6 +26,8 @@ class TestLogin():
         login.with_("tomsmith", "SuperSecretPassword!")
         assert login.success_message_present()
 
-    def test_invalid_credentials(selfself, login):
+    def test_invalid_credentials(self, login):
         login.with_("test", "123456")
         assert login.fail_message_present()
+
+ 
