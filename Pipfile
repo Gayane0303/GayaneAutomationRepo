@@ -11,6 +11,9 @@ ec = "*"
 pytest = "*"
 locator = "*"
 action = "*"
+basepage = "*"
+pages = "*"
+init = "*"
 
 [requires]
 python_version = "3.8"

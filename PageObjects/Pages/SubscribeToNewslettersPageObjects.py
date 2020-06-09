@@ -14,8 +14,8 @@ class Home(object):
     def subscribeToNewslettersInputField(self):
         return self.subscribeToNewsLettersInputField
 
-    #def clickOnSubscribeButton(subscribeButton):
-     #   subscribeButton.click()
+    #def clickOnSubscribeButton(self,subscribeButton):
+    #    subscribeButton.click()
 
 
 
