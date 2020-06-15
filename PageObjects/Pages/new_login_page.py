@@ -13,7 +13,7 @@ class NewLoginPage(BasePage):
 
     def __init__ (self, driver):
         self.driver = driver
-        #driver.maximize_window()
+        driver.maximize_window()
         self._visit("https://the-internet.herokuapp.com/login")
 
     def with_(self, username, password):

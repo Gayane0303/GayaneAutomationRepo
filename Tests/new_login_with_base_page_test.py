@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as Chrome
 
 from PageObjects.Pages import new_login_page
-
+from PageObjects.Pages import secure_area_page
 
 class TestNewLogin():
 
@@ -30,4 +30,13 @@ class TestNewLogin():
     def test_invalid_credentials(self, login1):
         login1.with_("test", "123456")
         assert login1.fail_message_present()
+
+    #def test_logout(self, login1, driver_):
+    #    login1.with_("test", "123456")
+     #   assert login1.fail_message_present()
+     #   secure_area=secure_area_page(driver_)
+     #   secure_area.logout_click
+
+
+
 

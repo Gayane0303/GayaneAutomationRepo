@@ -22,4 +22,7 @@ class BasePage():
     def _is_displayed(self, locator):
         self._find(locator).is_displayed()
 
+    def _click(self, locator):
+        self._find(locator).click()
+
 

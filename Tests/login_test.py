@@ -4,6 +4,9 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as Chrome
 
 from PageObjects.Pages import login_page
+from PageObjects.Pages.login_page import LoginPage
+from PageObjects.Pages.main_page import MainPage
+from PageObjects.Pages.secure_area_page import SecureAreaPage
 
 
 class TestLogin():
@@ -30,4 +33,4 @@ class TestLogin():
         login.with_("test", "123456")
         assert login.fail_message_present()
 
-   
+
