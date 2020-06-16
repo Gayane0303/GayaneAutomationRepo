@@ -8,30 +8,28 @@ from selenium.webdriver.support.ui import Select
 class DropdownPage(BasePage):
     _dropdown = {"by": By.ID, "value": "dropdown"}
     _dropdownItem1 = {"by": By.XPATH, "value": "//*[@id='dropdown']/option[2]"}
+    _items = {"by": By.XPATH, "value": "//*[@id='dropdown']/option"}
 
     def __init__(self, driver):
         self.driver = driver
-        driver.maximize_window()
-        self._visit("https://the-internet.herokuapp.com/dropdown")
 
-    def clickOnDropDown(self):
-        self.driver.find_element(self._dropdown["by"],
-                                 self._dropdown["value"]).click()
+    def click_on_dropdown(self):
+        self._click(self._dropdown)
 
-    def getDropdownList(self):
-        dropdownList = self.driver.find_element(self._dropdown["by"],
-                                                self._dropdown["value"]).text
-        print(dropdownList)
+    def is_slected_item_displayed(self):
+        self._is_displayed(self._dropdownItem1)
 
     def selectDropdownListItem(self):
         getDropdownItem1 = self.driver.find_element(self._dropdown["by"],
-                                                   self._dropdown["value"])
-        item1=Select(getDropdownItem1)
+                                                    self._dropdown["value"])
+        item1 = Select(getDropdownItem1)
         item1.select_by_visible_text("Option 1")
+        #item1.select_by_index(1)
 
     def getDropdownItemText(self):
-        getDropdownItem1 = self.driver.find_elements(self._dropdown["by"],
-                                                    self._dropdown["value"])
-        for i in getDropdownItem1:
+        getDropdownItemsList = self.driver.find_elements(self._dropdown["by"],
+                                                         self._dropdown["value"])
+        for i in getDropdownItemsList:
             print(i.text)
-        print(getDropdownItem1)
+        print(getDropdownItemsList)
+

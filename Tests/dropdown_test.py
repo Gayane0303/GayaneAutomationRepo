@@ -1,34 +1,32 @@
-import pytest
-import os
-from selenium import webdriver
-from selenium.webdriver.firefox.service import Service as Chrome
-
-from PageObjects.Pages import dropdown_page
+import time
+import unittest
 from selenium import webdriver
 
+from PageObjects.Pages.main_page import MainPage
+from PageObjects.Pages.dropdown_page import DropdownPage
 
-class TestDropdown():
-    @pytest.fixture()
-    def dropdown(self, request):
-        _chromedriver = os.path.join(os.getcwd(), 'drivers', 'chromedriver')
-        if os.path.isfile(_chromedriver):
-            _service = Chrome(executable_path=_chromedriver)
-            driver_ = webdriver.Chrome(service=_service)
-        else:
-            driver_ = webdriver.Chrome()
 
-        def quit():
-            driver_.quit()
+class dropdown(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
 
-        request.addfinalizer(quit)
-        return dropdown_page.DropdownPage(driver_)
+    def tearDown(self):
+        self.driver.quit()
 
-    def test_dropdown(self, dropdown):
-        dropdown.clickOnDropDown()
+    def test_dropdown(self):
+        main_page = MainPage(self.driver)
+        main_page.go_dropdown()
+
+        dropdown = DropdownPage(self.driver)
+        dropdown.click_on_dropdown()
         dropdown.selectDropdownListItem()
-        #assert dropdown.getDropdownItemText(1)=="Option 1"
+        assert dropdown.is_slected_item_displayed
+        #time.sleep(2)
 
-        #assert dropdown.getDropdownList()=="Option 1", "Option 2"
+    def test_get_dropdown_item_list(self):
+        main_page = MainPage(self.driver)
+        main_page.go_dropdown()
 
-
+        dropdown = DropdownPage(self.driver)
+        dropdown.getDropdownItemText()
 
