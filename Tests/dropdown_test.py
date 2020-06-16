@@ -28,5 +28,10 @@ class dropdown(unittest.TestCase):
         main_page.go_dropdown()
 
         dropdown = DropdownPage(self.driver)
-        dropdown.getDropdownItemText()
+        dropdown.click_on_dropdown()
+        dropdown.getDropdownItemsList()
+        dropdown.click_on_dropdown()
+
+        self.assertEqual(("Please select an option", "Option 1", "Option 2"), dropdown.getDropdownItemsList())
+
 

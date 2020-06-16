@@ -26,10 +26,11 @@ class DropdownPage(BasePage):
         item1.select_by_visible_text("Option 1")
         #item1.select_by_index(1)
 
-    def getDropdownItemText(self):
+    def getDropdownItemsList(self):
         getDropdownItemsList = self.driver.find_elements(self._dropdown["by"],
                                                          self._dropdown["value"])
         for i in getDropdownItemsList:
             print(i.text)
         print(getDropdownItemsList)
+
 

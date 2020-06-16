@@ -22,7 +22,15 @@ class BasePage():
     def _is_displayed(self, locator):
         self._find(locator).is_displayed()
 
-    def _click(self, locator):
-        self._find(locator).click()
+    #def _click(self, locator):
+        #self._find(locator).click()
 
+    def _is_checked(self, locator):
+        self._find(locator).is_selected()
+
+    def _is_checkbox_checked(self, locator):
+        return self._find(locator).get_attribute("checked")
+
+    def _is_checkbox_selected(self, locator):
+        return self._find(locator).is_selected()
 

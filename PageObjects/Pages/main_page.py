@@ -4,6 +4,8 @@ from PageObjects.Pages.base_page import BasePage
 class MainPage(BasePage):
     _login_link= {"by": By.LINK_TEXT, "value": "Form Authentication"}
     _dropdown_link = {"by": By.LINK_TEXT, "value": "Dropdown"}
+    _checkbox_link = {"by": By.LINK_TEXT, "value": "Checkboxes"}
+
 
     def __init__(self, driver):
         self.driver = driver
@@ -15,3 +17,6 @@ class MainPage(BasePage):
 
     def go_dropdown(self):
         self._click(self._dropdown_link)
+
+    def go_checkbox(self):
+        self._click(self._checkbox_link)
