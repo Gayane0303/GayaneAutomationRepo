@@ -4,7 +4,6 @@ from PageObjects.Pages.base_page import BasePage
 from selenium.webdriver.support.ui import Select
 
 
-
 class DropdownPage(BasePage):
     _dropdown = {"by": By.ID, "value": "dropdown"}
     _dropdownItem1 = {"by": By.XPATH, "value": "//*[@id='dropdown']/option[2]"}
@@ -24,13 +23,12 @@ class DropdownPage(BasePage):
                                                     self._dropdown["value"])
         item1 = Select(getDropdownItem1)
         item1.select_by_visible_text("Option 1")
-        #item1.select_by_index(1)
+        # item1.select_by_index(1)
 
     def getDropdownItemsList(self):
-        getDropdownItemsList = self.driver.find_elements(self._dropdown["by"],
-                                                         self._dropdown["value"])
-        for i in getDropdownItemsList:
-            print(i.text)
-        print(getDropdownItemsList)
-
-
+        selector = Select(self.driver.find_element(self._dropdown["by"], self._dropdown["value"]))
+        options = selector.options
+        optin_text_list = list()
+        for i in options:
+            optin_text_list.append(i.text)
+        return optin_text_list

@@ -19,10 +19,9 @@ class checkBoxTest(unittest.TestCase):
         main_page.go_checkbox()
 
         checkbox = CheckBoxPage(self.driver)
-        #assert checkbox.is_first_checkbox_checked()
 
         checkbox.check_first_checkbox()
-        time.sleep(3)
-        assert checkbox.is_first_checkbox_checked
-        assert checkbox.is_second_checkbox_checked
+        time.sleep(1)
+        assert checkbox.is_first_checkbox_checked()
+        assert checkbox.is_second_checkbox_checked()
 

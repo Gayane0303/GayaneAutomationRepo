@@ -13,9 +13,8 @@ class CheckBoxPage(BasePage):
         self._click(self._first_checkbox)
 
     def is_first_checkbox_checked(self):
-        #self._is_checkbox_checked(self._first_checkbox)
-        self._is_checkbox_checked(self._is_checkbox_selected)
+        return self._is_checkbox_selected(self._first_checkbox)
 
     def is_second_checkbox_checked(self):
-        self._is_checkbox_checked(self._second_checkbox)
+        return self._is_checkbox_selected(self._second_checkbox)
 

@@ -21,7 +21,6 @@ class dropdown(unittest.TestCase):
         dropdown.click_on_dropdown()
         dropdown.selectDropdownListItem()
         assert dropdown.is_slected_item_displayed
-        #time.sleep(2)
 
     def test_get_dropdown_item_list(self):
         main_page = MainPage(self.driver)
@@ -29,9 +28,6 @@ class dropdown(unittest.TestCase):
 
         dropdown = DropdownPage(self.driver)
         dropdown.click_on_dropdown()
-        dropdown.getDropdownItemsList()
-        dropdown.click_on_dropdown()
-
-        self.assertEqual(("Please select an option", "Option 1", "Option 2"), dropdown.getDropdownItemsList())
+        self.assertEqual(['Please select an option', 'Option 1', 'Option 2'], dropdown.getDropdownItemsList())
 
 
